@@ -1,8 +1,6 @@
-# this is an answer file for the Assignment
-# move it up a directory for it to work
-FROM node:10.15-alpine
+FROM node:14.5.0-alpine
 
-EXPOSE 4000
+EXPOSE 3000
 
 RUN apk add --no-cache tini
 
@@ -10,10 +8,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install && npm cache clean --force
+RUN npm install --only=prod && npm cache clean --force
 
 COPY . .
 
 ENTRYPOINT ["tini", "--"]
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
