@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: bcdop.fuf.me
+      http:
+        paths:
+          - path: /api/?(.*)
+            backend:
+              serviceName: server-srv
+              servicePort: 3000
+
+          - path: /hello/?(.*)
+            backend:
+              serviceName: hello-srv
+              servicePort: 3000
+
+          - path: /?(.*)
+            backend:
+              serviceName: client-srv
+              servicePort: 3000

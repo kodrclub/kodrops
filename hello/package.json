@@ -1,0 +1,16 @@
+{
+  "name": "miniprod-express",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express.js para Miniprod",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Kodr.club",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

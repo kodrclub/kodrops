@@ -15,23 +15,9 @@ app.use(bodyParser.json());
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.get('/', (req, res) => {
-  console.log('===============================');
-  console.log('HELLO');
-  console.log('===================');
-  res.send('Hello World!');
+  res.send('You should not see me');
 });
-app.get('/server', (req, res) => {
-  console.log('===============================');
-  console.log('SERVER');
-  console.log('===================');
-  res.send('Hello server!');
-});
-// app.get('/api', (req, res) => {
-//   console.log('===============================');
-//   console.log('API');
-//   console.log('===================');
-//   res.send('Hello API!');
-// });
+
 app.use('/api', movieRouter);
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
