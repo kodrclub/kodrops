@@ -20,7 +20,18 @@ app.get('/', (req, res) => {
   console.log('===================');
   res.send('Hello World!');
 });
-
+app.get('/server', (req, res) => {
+  console.log('===============================');
+  console.log('SERVER');
+  console.log('===================');
+  res.send('Hello server!');
+});
+// app.get('/api', (req, res) => {
+//   console.log('===============================');
+//   console.log('API');
+//   console.log('===================');
+//   res.send('Hello API!');
+// });
 app.use('/api', movieRouter);
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));

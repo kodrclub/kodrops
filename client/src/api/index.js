@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://bcdop.fuf.me/api/server/api',
+  baseURL: 'https://bcdop.fuf.me/api',
 });
 
 export const insertMovie = (payload) => api.post(`/movie`, payload);

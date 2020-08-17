@@ -15,7 +15,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.js'
+          - src: './**/*.js'
             dest: .
 
     - image: kodrclub/bcdop-server
@@ -24,5 +24,14 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: './**/*.js'
+            dest: .
+
+    - image: kodrclub/bcdop-hello
+      context: hello
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: './**/*.js'
             dest: .
