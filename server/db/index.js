@@ -1,11 +1,18 @@
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose');
+const mongoUri = process.env.MONGO_URI;
+console.log('------------------------------------');
+console.log(mongoUri);
+console.log('----------------------------');
 mongoose
-    .connect('mongodb://127.0.0.1:27017/cinema', { useNewUrlParser: true })
-    .catch(e => {
-        console.error('Connection error', e.message)
-    })
+  .connect(
+    mongoUri,
+    { useNewUrlParser: true }
+    //
+  )
+  .catch((e) => {
+    console.error('Connection error', e.message);
+  });
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
-module.exports = db
+module.exports = db;

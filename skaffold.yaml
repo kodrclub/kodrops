@@ -9,7 +9,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: kodrclub/mst-client
+    - image: kodrclub/bcdop-client
       context: client
       docker:
         dockerfile: Dockerfile
