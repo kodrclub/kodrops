@@ -29,7 +29,7 @@ it('returns the movie at the `movie show` endpoint if the movie exists', async (
   const response = await request(app)
     .get(`/api/movie/${_id}`)
     .send()
-    .expect(200);
+    .expect(201); //fail on purpose!!!
 
   expect(response.body.data.name).toEqual(name);
   expect(response.body.data.rating).toEqual(rating);
