@@ -14,10 +14,10 @@ app.use(bodyParser.json());
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+app.use('/api', movieRouter);
+
 app.get('/', (req, res) => {
   res.send('You should not see me');
 });
-
-app.use('/api', movieRouter);
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));

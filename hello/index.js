@@ -4,7 +4,7 @@ const port = 3000;
 
 app.get('/hello', (req, res) => {
   res.send(`
-    <h1>Well this is unexpected...!</h1>
+    <h1>Hello, World!</h1>
     <img src="https://placekitten.com/300/200"></img>
     `);
 });
@@ -12,7 +12,7 @@ app.get('/hello', (req, res) => {
 app.get('/', (req, res) => {
   res.send(`
     <img src="https://placekitten.com/300/200"></img>
-    <h1>Hello World!</h1>
+    <h1>You should not see me</h1>
   `);
 });
 
