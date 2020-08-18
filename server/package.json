@@ -2,7 +2,15 @@
   "name": "server",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --watchAll --no-cache",
+    "test:ci": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./test/setup.js"
+    ]
   },
   "main": "index.js",
   "license": "MIT",
@@ -11,5 +19,10 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.7.5"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "mongodb-memory-server": "^6.6.4",
+    "supertest": "^4.0.2"
   }
 }
