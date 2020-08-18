@@ -18,8 +18,8 @@ build:
           - src: './**/*.js'
             dest: .
 
-    - image: kodrclub/bcdop-server
-      context: server
+    - image: kodrclub/bcdop-backend
+      context: backend
       docker:
         dockerfile: Dockerfile
       sync:

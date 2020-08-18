@@ -12,7 +12,7 @@ spec:
         paths:
           - path: /api/?(.*)
             backend:
-              serviceName: server-srv
+              serviceName: backend-srv
               servicePort: 3000
 
           - path: /hello/?(.*)
