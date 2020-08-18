@@ -1,7 +1,3 @@
-// import { MongoMemoryServer } from 'mongodb-memory-server';
-// import mongoose from 'mongoose';
-// import request from 'supertest';
-// import { app } from '../app';
 const MongoMemoryServer = require('mongodb-memory-server').MongoMemoryServer;
 const mongoose = require('mongoose');
 let mongo;
@@ -9,7 +5,8 @@ let mongo;
 beforeAll(async () => {
   mongo = new MongoMemoryServer();
   const mongoUri = await mongo.getUri();
-
+  process.env.MONGO_URI = mongoUri;
+  console.log(mongoUri);
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -27,3 +24,7 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+global.generateId = () => {
+  return mongoose.Types.ObjectId().toHexString();
+};
