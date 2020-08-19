@@ -8,11 +8,13 @@ deploy:
 build:
   local:
     push: false
+    useBuildkit: true
   artifacts:
-    - image: kodrclub/bcdop-client
+    - image: kodrclub/bcdop-client-dev
       context: client
       docker:
         dockerfile: Dockerfile
+        target: dev
       sync:
         manual:
           - src: './**/*.js'
