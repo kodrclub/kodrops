@@ -6,7 +6,15 @@ This repo is still very much a work in progress.
 
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
 
-Development requires [Skaffold](https://skaffold.dev/) and a running Kubernetes cluster. My development environment is Ubuntu 20.04.1 LTS running on Windows Subsystem for Linux v2 plus Kubernetes running on Docker-Desktop.
+Development requires [Skaffold](https://skaffold.dev/) and a running Kubernetes cluster.
+
+The development environment used is comprised of:
+
+- Ubuntu 20.04.1 LTS running on Windows Subsystem for Linux v2
+- Kubernetes v1.16.6
+- Docker-Desktop v19.03.12
+- Skaffold v1.13.1
+- Terraform v0.13.0
 
 Start a development environment by running
 
@@ -25,6 +33,7 @@ The application will be deployed to a Kubernetes cluster running on the Google K
 - Github actions for deploying the application
 - Github actions for deploying the GCP infrastructure
 - Use a Kubernetes statefulSet to provide persistence to MongoDb
+- Add healthchecks to all deployments
 - Include cert-manager to obtain proper TLS certs
 - Include a monitoring solution
 - Include stress tests
