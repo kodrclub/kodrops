@@ -1,4 +1,4 @@
-# GeeksHubs DevOps Bootcamp 2020
+# GeeksHubs DevOps Bootcamp 2020 - Final Project
 
 ## Juan Manuel Medina
 
@@ -32,3 +32,5 @@ The application will be deployed to a Kubernetes cluster running on the Google K
   - Add infrastructure tests (Inspec? Terratest?)
   - Support a multi-zone cluster
   - Streamline dev/prod k8s manifests (kustomize? Helm?)
+  - Automated build and use of tagged, version-pinned images instead of `latest` in production
+  - Full-fledged GitOps with ArgosCD? Flux?
