@@ -7,7 +7,8 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: bcdop.fuf.me
+    # - host: kodr.xyz
+    - host: 34.91.119.173.xip.io
       http:
         paths:
           - path: /api/?(.*)
@@ -23,4 +24,4 @@ spec:
           - path: /?(.*)
             backend:
               serviceName: client-srv
-              servicePort: 3000
+              servicePort: 80

@@ -2,7 +2,7 @@
   "name": "miniprod-express",
   "version": "1.0.0",
   "private": true,
-  "description": "Express.js para Miniprod",
+  "description": "Express.js test miniapp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
