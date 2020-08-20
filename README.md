@@ -12,9 +12,12 @@ The development environment used is comprised of:
 
 - Ubuntu 20.04.1 LTS running on Windows Subsystem for Linux v2
 - Kubernetes v1.16.6
+- kubectl v1.18.8 (see note below)
 - Docker-Desktop v19.03.12
 - Skaffold v1.13.1
 - Terraform v0.13.0
+
+> NOTE: kubectl versions with patch versions lower than v1.18.8 v1.17.11 or v1.16.14 have issues installing/updated cert manager
 
 Start a development environment by running
 
@@ -42,4 +45,4 @@ The application will be deployed to a Kubernetes cluster running on the Google K
   - Support a multi-zone cluster
   - Streamline dev/prod k8s manifests (kustomize? Helm?)
   - Automated build and use of tagged, version-pinned images instead of `latest` in production
-  - Full-fledged GitOps with ArgosCD? Flux?
+  - Full-fledged GitOps with ArgoCD? Flux? Jenkins X? Tekton?
