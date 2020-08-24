@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-depl
+  annotations:
+    key1: 'dummy value1'
+    key2: 'dummy value2'
+
 spec:
   replicas: 1
   selector:
