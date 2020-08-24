@@ -1,27 +1,18 @@
-name: deploy-backend
+name: deploy-manifests
 
 on:
   push:
     branches:
       - deploy
     paths:
-      - 'backend/**'
+      - 'infra/k8s/**'
+      - 'infra/k8s-prod/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - run: docker build -t kodrclub/bcdop-backend backend
-        env:
-          DOCKER_BUILDKIT: 1
-      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push kodrclub/bcdop-backend
-
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '290.0.1'
@@ -33,4 +24,4 @@ jobs:
           GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
           GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-      - run: kubectl rollout restart deployment backend-depl
+      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
