@@ -11,21 +11,19 @@ Development requires [Skaffold](https://skaffold.dev/) and a running Kubernetes 
 The development environment used is comprised of:
 
 - Ubuntu 20.04.1 LTS running on Windows Subsystem for Linux v2
-- Kubernetes v1.16.6
-- kubectl v1.18.8 (see note below)
 - Docker-Desktop v19.03.12
+- Kubernetes v1.16.6
+- Make
 - Skaffold v1.13.1
 - Terraform v0.13.0
-
-> NOTE: kubectl versions with patch versions lower than v1.18.8 v1.17.11 or v1.16.14 have issues installing/updated cert manager
 
 Start a development environment by running
 
 ```
-$ skaffold dev
+$ make dev
 ```
 
-at the root directory of the project.
+at the root directory of the project. This makes sure that skaffold is running on the correct K8s context. This context can be specified in the environment variable `SKAFFOLD_CONTEXT`. It defaults to "docker-desktop".
 
 The CI/CD pipeline uses Github Actions.
 
