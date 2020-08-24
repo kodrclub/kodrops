@@ -6,10 +6,10 @@ import { MoviesList, MoviesInsert, MoviesUpdate } from '../pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+function App(props) {
   return (
     <Router>
-      <NavBar />
+      <NavBar version={props.version} />
       <Switch>
         <Route path="/" exact component={MoviesList} />
         <Route path="/movies/list" exact component={MoviesList} />

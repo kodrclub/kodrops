@@ -2,4 +2,8 @@ require('./db');
 const app = require('./app').app;
 const apiPort = process.env.BACKEND_PORT || 3000;
 
-app.listen(apiPort, () => console.log(`Backend running on port ${apiPort}`));
+const version = process.env.npm_package_version;
+
+app.listen(apiPort, () =>
+  console.log(`Backend version ${version} running on port ${apiPort}`)
+);

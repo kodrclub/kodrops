@@ -1,43 +1,43 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Collapse = styled.div.attrs({
-    className: 'collpase navbar-collapse',
-})``
+  className: 'collpase navbar-collapse',
+})``;
 
 const List = styled.div.attrs({
-    className: 'navbar-nav mr-auto',
-})``
+  className: 'navbar-nav mr-auto',
+})``;
 
 const Item = styled.div.attrs({
-    className: 'collpase navbar-collapse',
-})``
+  className: 'collpase navbar-collapse',
+})``;
 
 class Links extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <Link to="/" className="navbar-brand">
-                    My first MERN Application
-                </Link>
-                <Collapse>
-                    <List>
-                        <Item>
-                            <Link to="/movies/list" className="nav-link">
-                                List Movies
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/movies/create" className="nav-link">
-                                Create Movie
-                            </Link>
-                        </Item>
-                    </List>
-                </Collapse>
-            </React.Fragment>
-        )
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <Link to="/" className="navbar-brand">
+          My first MERN Application v{this.props.version}
+        </Link>
+        <Collapse>
+          <List>
+            <Item>
+              <Link to="/movies/list" className="nav-link">
+                List Movies
+              </Link>
+            </Item>
+            <Item>
+              <Link to="/movies/create" className="nav-link">
+                Create Movie
+              </Link>
+            </Item>
+          </List>
+        </Collapse>
+      </React.Fragment>
+    );
+  }
 }
 
-export default Links
+export default Links;
