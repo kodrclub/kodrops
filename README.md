@@ -37,7 +37,7 @@ The application will be deployed to a Kubernetes cluster running on the Google K
 - Github actions for deploying the GCP infrastructure
 - Use a Kubernetes statefulSet to provide persistence to MongoDb
 - Add healthchecks to all deployments
-- Include cert-manager to obtain proper TLS certs
+  ✔ Include cert-manager to obtain proper TLS certs
 - Include a monitoring solution
 - Include stress tests
 - And (hopefully) more ;)
