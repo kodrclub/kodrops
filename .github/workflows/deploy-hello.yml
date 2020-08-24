@@ -1,0 +1,45 @@
+name: deploy-hello
+
+on:
+  push:
+    branches:
+      - deploy
+    paths:
+      - 'hello/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - run: gcloud info
+      #
+      #
+      #
+      # - uses: actions/checkout@v2
+      # - run: docker build -t kodrclub/bcdop-hello hello
+      #   env:
+      #     DOCKER_BUILDKIT: 1
+      # - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      #   env:
+      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      # - run: docker push kodrclub/bcdop-hello
+      #
+      # - uses: digitalocean/action-doctl@v2
+      #   with:
+      #     token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      # - run: doctl kubernetes cluster kubeconfig save gittix-do
+      # - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE --project $GCP_PROJECT_ID
+      #   env:
+      #     GCP_CLUSTER_NAME: kodr-xyz
+      #     GCP_ZONE: europe-west4-a
+      #     GCP_PROJECT_ID: bcdevops
+      #
+      # - run: kubectl rollout restart deployment hello-depl
