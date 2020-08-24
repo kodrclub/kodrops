@@ -10,6 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/api/version', (req, res) => {
+  res.send(JSON.stringify({ version: app.version }));
+});
+
 app.use('/api', movieRouter);
 
 app.get('/', (req, res) => {
