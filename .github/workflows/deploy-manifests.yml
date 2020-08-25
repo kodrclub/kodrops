@@ -3,7 +3,7 @@ name: deploy-manifests
 on:
   push:
     branches:
-      - deploy
+      - master
     paths:
       - 'infra/k8s/**'
       - 'infra/k8s-prod/**'

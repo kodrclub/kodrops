@@ -3,7 +3,7 @@ name: deploy-hello
 on:
   push:
     branches:
-      - deploy
+      - master
     paths:
       - 'hello/**'
 
