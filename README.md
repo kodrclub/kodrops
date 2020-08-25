@@ -1,14 +1,16 @@
 # GeeksHubs DevOps Bootcamp 2020 - Final Project
 
-## Juan Manuel Medina
-
-This repo is still very much a work in progress.
+## Overview
 
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
 
+A separate application called Hello is also included. This is just a simple "hello, world"-style app that comes in handy for troubleshooting.
+
+## Development environment
+
 Development requires [Skaffold](https://skaffold.dev/) and a running Kubernetes cluster.
 
-The development environment used is comprised of:
+The development environment used to write this project was comprised of:
 
 - Ubuntu 20.04.1 LTS running on Windows Subsystem for Linux v2
 - Docker-Desktop v19.03.12
@@ -25,19 +27,31 @@ $ make dev
 
 at the root directory of the project. This makes sure that skaffold is running on the correct K8s context. This context can be specified in the environment variable `SKAFFOLD_CONTEXT`. It defaults to "docker-desktop".
 
-The CI/CD pipeline uses Github Actions.
+### Stress testing
+
+A simple stress testing script using [Locust](https://locust.io/) is included in the locustfile.py file in the root directory of the project. It can be run in a Docker container, so it is not necessary to install python, pip or locust itself on the dev machine. The script can be started by running
+
+```
+$ make stress
+```
+
+## Production
+
+The CI/CD pipeline uses Github Actions to automate infrastructure provisioning, application testing, Docker image builds and deployment of Kubernetes manifests.
 
 The application will be deployed to a Kubernetes cluster running on the Google Kubernetes Engine.
 
 ### To Do
 
-- Github actions for deploying the application
+- ✔ Github actions for deploying the application
 - Github actions for deploying the GCP infrastructure
+- Document GCP requirements and manual config
+- Document Github Actions config and workflow
 - Use a Kubernetes statefulSet to provide persistence to MongoDb
 - Add healthchecks to all deployments
-  ✔ Include cert-manager to obtain proper TLS certs
+- ✔ Include cert-manager to obtain proper TLS certs
 - Include a monitoring solution
-- Include stress tests
+- ✔ Include stress tests
 - And (hopefully) more ;)
   - Add infrastructure tests (Inspec? Terratest?)
   - Support a multi-zone cluster
