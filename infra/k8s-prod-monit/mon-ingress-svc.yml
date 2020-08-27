@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mon-ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: alert.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-prometheus-alertmanager
+              servicePort: 80
+    - host: prom.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-prometheus-server
+              servicePort: 80
+    - host: push.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-prometheus-pushgateway
+              servicePort: 9091
+    #
+    # grafana
+    #
+    - host: graf.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-grafana
+              servicePort: 80

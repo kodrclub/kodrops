@@ -17,3 +17,7 @@ class QuickstartUser(HttpUser):
             self.client.post("/api/movie", {"name": "locust_%s_%s" % (ident, count),  "rating": random.randint(1,9)})
             time.sleep(1)
 
+    @task(3)
+    def create_movie_fail(self):
+        self.client.post("/api/movie", {})
+        time.sleep(1)
