@@ -29,7 +29,7 @@ endif
 >	@skaffold dev
 .PHONY: dev
 
-stress: ## Starts locust, allowing to run stress tests on either dev or prod environments
+stress: ## Starts locust and loads locustfile.py in order to run stress tests
 > @docker run -p 8089:8089 -v $$PWD:/mnt/locust locustio/locust -f /mnt/locust/locustfile.py
 .PHONY: stress
 
