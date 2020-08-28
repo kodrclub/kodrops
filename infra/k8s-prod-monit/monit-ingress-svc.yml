@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: monit-ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    # cert-manager.io/issuer: 'letsencrypt-staging'
+    cert-manager.io/issuer: 'letsencrypt-prod'
+spec:
+  tls:
+    - hosts:
+        - graf.kodr.xyz ##################
+        - prom.kodr.xyz ##################
+      # - alert.kodr.xyz ##################
+      # - push.kodr.xyz ##################
+      secretName: monit-kodr-tls
+
+  rules:
+    - host: prom.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-prometheus-server
+              servicePort: 80
+    # - host: push.kodr.xyz
+    #   http:
+    #     paths:
+    #       - path: /?(.*)
+    #         backend:
+    #           serviceName: kodr-xyz-prometheus-pushgateway
+    #           servicePort: 9091
+    # - host: alert.kodr.xyz
+    #   http:
+    #     paths:
+    #       - path: /?(.*)
+    #         backend:
+    #           serviceName: kodr-xyz-prometheus-alertmanager
+    #           servicePort: 80
+
+    #
+    # grafana
+    #
+    - host: graf.kodr.xyz
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: kodr-xyz-grafana
+              servicePort: 80
