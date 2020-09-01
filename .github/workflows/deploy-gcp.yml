@@ -3,10 +3,9 @@ name: deploy-gcp
 on:
   push:
     branches:
-      - kodrops
+      - master
     paths:
       - 'infra/gcp/**'
-      - '.github/workflows/**'
 
 env:
   TF_VAR_dnsimple_account: ${{secrets.TF_VAR_DNSIMPLE_ACCOUNT}}
