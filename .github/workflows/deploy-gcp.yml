@@ -48,46 +48,42 @@ jobs:
       - name: Terraform Plan
         run: cd infra/gcp && terraform plan -out "planfile"
 
+
       # - name: Terraform Apply
       #   run: cd infra/gcp && terraform apply -auto-approve "planfile"
 
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
+  gke:
+    name: 'GKE'
+    needs: terraform
+    runs-on: ubuntu-latest
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: GCP
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: kodrclub/bcdevops-final
-          event-type: infra-deployed
+          version: '290.0.1'
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-  # gke:
-  #   name: 'GKE'
-  #   needs: terraform
-  #   runs-on: ubuntu-latest
+      - run: make deploy-prod-manifests
 
-  #   # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-  #   defaults:
-  #     run:
-  #       shell: bash
+      # - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
+      #   env:
+      #     GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
+      #     GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-
-  #     - name: GCP
-  #       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-  #       with:
-  #         version: '290.0.1'
-  #         project_id: ${{ secrets.GCP_PROJECT_ID }}
-  #         service_account_key: ${{ secrets.GCP_SA_KEY }}
-
-  #     - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
-  #       env:
-  #         GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
-  #         GCP_ZONE: ${{ secrets.GCP_ZONE }}
-
-  #     - run: |
-  #         kubectl apply            -f infra/k8s-prod/kodrops-ns.yaml
-  #         kubectl apply -n kodrops -f infra/k8s
-  #         kubectl apply -n kodrops -f infra/k8s-prod
-  #         kubectl apply -n monit   -f infra/k8s-prod-monit
-  #         kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=0
-  #         kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=1
+      # - run: |
+      #     kubectl apply            -f infra/k8s-prod/kodrops-ns.yaml
+      #     kubectl apply -n kodrops -f infra/k8s
+      #     kubectl apply -n kodrops -f infra/k8s-prod
+      #     kubectl apply -n monit   -f infra/k8s-prod-monit
+      #     kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=0
+      #     kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=1

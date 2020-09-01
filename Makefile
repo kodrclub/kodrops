@@ -33,6 +33,11 @@ stress: ## Starts locust and loads locustfile.py in order to run stress tests
 > @docker run -p 8089:8089 -v $$PWD:/mnt/locust locustio/locust -f /mnt/locust/locustfile.py
 .PHONY: stress
 
+deploy-prod-manifests:
+> @ls
+> @ls -lah
+> @kubectl get pods
+> @kubectl get services
 
 help:
 >	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
