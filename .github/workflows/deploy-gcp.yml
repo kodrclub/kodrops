@@ -5,7 +5,7 @@ on:
     branches:
       - kodrops
     paths:
-      - 'infra/___gcp/**'
+      - 'infra/gcp/**'
       - '.github/workflows/**'
 
 env:
@@ -40,16 +40,39 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Init
-        run: cd infra/___gcp && terraform init
+        run: cd infra/gcp && terraform init
 
       - name: Terraform Format
-        run: cd infra/___gcp && terraform fmt -check
+        run: cd infra/gcp && terraform fmt -check
 
       - name: Terraform Plan
-        run: cd infra/___gcp && terraform plan -out "planfile"
+        run: cd infra/gcp && terraform plan -out "planfile"
 
-      - name: Terraform Apply
-        run: cd infra/___gcp && terraform apply -auto-approve "planfile"
+
+      # - name: Terraform Apply
+      #   run: cd infra/gcp && terraform apply -auto-approve "planfile"
+
+  gke:
+    name: 'GKE'
+    runs-on: ubuntu-latest
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: GCP
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+
+      - run: gcloud info
 
       # - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
       #   env:

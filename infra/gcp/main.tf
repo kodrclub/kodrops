@@ -3,10 +3,10 @@
 #
 provider "google" {
   # See https://github.com/hashicorp/terraform-provider-google/blob/master/CHANGELOG.md
-  version     = "~> 3.34"
-  project     = var.project_id
-  region      = var.main_region
-  zone        = var.main_zone
+  version = "~> 3.34"
+  project = var.project_id
+  region  = var.main_region
+  zone    = var.main_zone
 }
 
 provider "dnsimple" {
@@ -15,7 +15,7 @@ provider "dnsimple" {
 }
 
 provider "kubernetes" {
-  version = "~> 1.12"
+  version                = "~> 1.12"
   load_config_file       = false
   host                   = module.gke.endpoint
   token                  = module.gke.token
@@ -40,7 +40,7 @@ provider "helm" {
 terraform {
   backend "gcs" {
     # bucket = "${var.project_id}-terraform"     #created in bootstrap
-    bucket = "kodrops-terraform"     #created in bootstrap, but no vars are allowed here #TODO: look into using vars to specify backend bucket name
+    bucket = "kodrops-terraform" #created in bootstrap, but no vars are allowed here #TODO: look into using vars to specify backend bucket name
     prefix = "terraform/state"
   }
 }
@@ -80,8 +80,8 @@ module "cert_manager" {
 # monitoring
 #
 module "monitoring" {
-  source             = "./modules/k8s-monitoring"
-  monitoring_name    = var.cluster_name
+  source                   = "./modules/k8s-monitoring"
+  monitoring_name          = var.cluster_name
   grafana_chart_version    = var.grafana_chart_version
   prometheus_chart_version = var.prometheus_chart_version
 }
@@ -90,10 +90,10 @@ module "monitoring" {
 # DNSimple
 #
 module "dnsimple" {
-  source       = "./modules/dnsimple"
-  domain_name  = var.domain_name
-  subdomains   = var.subdomains
-  ip           = module.ingress.public_ips.0
+  source      = "./modules/dnsimple"
+  domain_name = var.domain_name
+  subdomains  = var.subdomains
+  ip          = module.ingress.public_ips.0
 
   depends_on = [module.ingress.public_ips]
 }
