@@ -53,7 +53,7 @@ terraform {
 #
 module "gke" {
   source                  = "./modules/gke"
-  cluster_location        = var.main_zone
+  cluster_location        = var.cluster_location
   cluster_name            = var.cluster_name
   cluster_pool_node_count = var.cluster_pool_node_count
   k8s_version_prefix      = var.k8s_version_prefix
