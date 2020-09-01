@@ -17,7 +17,7 @@ app.use(
   prometheus({
     metricsPath: '/api/metrics',
     // prefix: 'kodrops_backend_',
-    prefix: 'tlk_',
+    prefix: 'kodrops_',
     collectDefaultMetrics: true,
     requestDurationBuckets: [0.1, 0.5, 1, 1.5],
   })

@@ -43,16 +43,16 @@ The application will be deployed to a Kubernetes cluster running on the Google K
 
 ### To Do
 
-- ✔ Github actions for deploying the application
-- Github actions for deploying the GCP infrastructure
 - Document GCP requirements and manual config
 - Document Github Actions config and workflow
-- Use a Kubernetes statefulSet to provide persistence to MongoDb
-- Add healthchecks to all deployments
+- ✔ Github actions for deploying the application
+- ✔ Github actions for deploying the GCP infrastructure
 - ✔ Include cert-manager to obtain proper TLS certs
 - ✔ Include a monitoring solution
 - ✔ Include stress tests
 - And (hopefully) more ;)
+  - Add healthchecks to all deployments/services
+  - Use a Kubernetes statefulSet to provide persistence to MongoDb
   - Add infrastructure tests (Inspec? Terratest?)
   - Support a multi-zone cluster
   - Streamline dev/prod k8s manifests (kustomize? Helm?)

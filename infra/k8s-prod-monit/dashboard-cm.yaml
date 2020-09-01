@@ -72,13 +72,13 @@ data:
           "pluginVersion": "7.1.1",
           "targets": [
             {
-              "expr": "tlk_http_requests_total{route=\"/api/movie\",method=\"POST\",status=\"2XX\"} ",
+              "expr": "kodrops_http_requests_total{route=\"/api/movie\",method=\"POST\",status=\"2XX\"} ",
               "interval": "",
               "legendFormat": "Create",
               "refId": "A"
             },
             {
-              "expr": "tlk_http_requests_total{route=\"/api/movies\",method=\"GET\",status=\"2XX\"} ",
+              "expr": "kodrops_http_requests_total{route=\"/api/movies\",method=\"GET\",status=\"2XX\"} ",
               "interval": "",
               "legendFormat": "List",
               "refId": "B"
@@ -135,7 +135,7 @@ data:
           "pluginVersion": "7.1.1",
           "targets": [
             {
-              "expr": "tlk_http_requests_total{route=\"/api/movie\",method=\"POST\",status!=\"2XX\"} ",
+              "expr": "kodrops_http_requests_total{route=\"/api/movie\",method=\"POST\",status!=\"2XX\"} ",
               "interval": "",
               "legendFormat": "Create",
               "refId": "A"
@@ -190,13 +190,13 @@ data:
           "pluginVersion": "7.1.1",
           "targets": [
             {
-              "expr": "rate(tlk_http_requests_total{route=\"/api/movie\",method=\"POST\",status=\"2XX\"}[5m])",
+              "expr": "rate(kodrops_http_requests_total{route=\"/api/movie\",method=\"POST\",status=\"2XX\"}[5m])",
               "interval": "",
               "legendFormat": " Create",
               "refId": "C"
             },
             {
-              "expr": "rate(tlk_http_requests_total{route=\"/api/movies\",method=\"GET\",status=\"2XX\"}[5m])",
+              "expr": "rate(kodrops_http_requests_total{route=\"/api/movies\",method=\"GET\",status=\"2XX\"}[5m])",
               "interval": "",
               "legendFormat": " List",
               "refId": "A"
@@ -251,7 +251,7 @@ data:
           "pluginVersion": "7.1.1",
           "targets": [
             {
-              "expr": "rate(tlk_http_requests_total{route=\"/api/movie\",method=\"POST\",status!=\"2XX\"}[1h])",
+              "expr": "rate(kodrops_http_requests_total{route=\"/api/movie\",method=\"POST\",status!=\"2XX\"}[1h])",
               "instant": true,
               "interval": "",
               "legendFormat": " Create",
