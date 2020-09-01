@@ -25,8 +25,4 @@ jobs:
           GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
           GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-      - run: |
-          kubectl apply            -f infra/k8s-prod/kodrops-ns.yaml
-          kubectl apply -n kodrops -f infra/k8s
-          kubectl apply -n kodrops -f infra/k8s-prod
-          kubectl apply -n monit   -f infra/k8s-prod-monit
+      - run: make deploy-prod-manifests
