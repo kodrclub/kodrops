@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: docker build -t kodrclub/bcdop-backend backend
+      - run: docker build -t kodrclub/kodrops-backend backend
         env:
           DOCKER_BUILDKIT: 1
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push kodrclub/bcdop-backend
+      - run: docker push kodrclub/kodrops-backend
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
@@ -33,4 +33,4 @@ jobs:
           GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
           GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-      - run: kubectl rollout restart deployment backend-depl
+      - run: kubectl rollout restart deployment backend-depl -n kodrops

@@ -10,7 +10,7 @@ build:
     push: false
     useBuildkit: true
   artifacts:
-    - image: kodrclub/bcdop-client-dev
+    - image: kodrclub/kodrops-client-dev
       context: client
       docker:
         dockerfile: Dockerfile
@@ -20,7 +20,7 @@ build:
           - src: './**/*.js'
             dest: .
 
-    - image: kodrclub/bcdop-backend
+    - image: kodrclub/kodrops-backend
       context: backend
       docker:
         dockerfile: Dockerfile
@@ -29,7 +29,7 @@ build:
           - src: './**/*.js'
             dest: .
 
-    - image: kodrclub/bcdop-hello
+    - image: kodrclub/kodrops-hello
       context: hello
       docker:
         dockerfile: Dockerfile

@@ -10,42 +10,42 @@ metadata:
 spec:
   tls:
     - hosts:
-        - graf.kodr.xyz ##################
-        - prom.kodr.xyz ##################
-      # - alert.kodr.xyz ##################
-      # - push.kodr.xyz ##################
-      secretName: monit-kodr-tls
+        - graf.kodrops.xyz ##################
+        - prom.kodrops.xyz ##################
+      # - alert.kodrops.xyz ##################
+      # - push.kodrops.xyz ##################
+      secretName: monit-kodrops-tls
 
   rules:
-    - host: prom.kodr.xyz
+    - host: prom.kodrops.xyz
       http:
         paths:
           - path: /?(.*)
             backend:
-              serviceName: kodr-xyz-prometheus-server
+              serviceName: kodrops-xyz-prometheus-server
               servicePort: 80
-    # - host: push.kodr.xyz
+    # - host: push.kodrops.xyz
     #   http:
     #     paths:
     #       - path: /?(.*)
     #         backend:
-    #           serviceName: kodr-xyz-prometheus-pushgateway
+    #           serviceName: kodrops-xyz-prometheus-pushgateway
     #           servicePort: 9091
-    # - host: alert.kodr.xyz
+    # - host: alert.kodrops.xyz
     #   http:
     #     paths:
     #       - path: /?(.*)
     #         backend:
-    #           serviceName: kodr-xyz-prometheus-alertmanager
+    #           serviceName: kodrops-xyz-prometheus-alertmanager
     #           servicePort: 80
 
     #
     # grafana
     #
-    - host: graf.kodr.xyz
+    - host: graf.kodrops.xyz
       http:
         paths:
           - path: /?(.*)
             backend:
-              serviceName: kodr-xyz-grafana
+              serviceName: kodrops-xyz-grafana
               servicePort: 80

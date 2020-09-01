@@ -1,0 +1,11 @@
+project_id  = "kodrops"
+main_region = "europe-west4"
+main_zone   = "europe-west4-a"
+
+cluster_name            = "kodrops-xyz"
+cluster_pool_node_count = 3
+cluster_version         = "1.16.13-gke.1"
+dns_zone_name           = "kodrops-xyz"
+domain_name             = "kodrops.xyz"
+
+
