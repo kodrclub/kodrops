@@ -1,0 +1,19 @@
+name: dummy
+
+on:
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'hello/**'
+
+  repository_dispatch:
+    types: [infra-deployed]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: ls -lah
