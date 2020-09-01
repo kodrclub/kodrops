@@ -3,14 +3,14 @@
 #
 provider "google" {
   # See https://github.com/hashicorp/terraform-provider-google/blob/master/CHANGELOG.md
-  version     = "~> 3.34"
-  project     = var.project_id
-  region      = var.main_region
-  zone        = var.main_zone
+  version = "~> 3.34"
+  project = var.project_id
+  region  = var.main_region
+  zone    = var.main_zone
 }
 
 provider "kubernetes" {
-  version = "~> 1.12"
+  version                = "~> 1.12"
   load_config_file       = false
   host                   = module.gke.endpoint
   token                  = module.gke.token
@@ -35,7 +35,7 @@ provider "helm" {
 terraform {
   backend "gcs" {
     # bucket = "${var.project_id}-terraform"     #created in bootstrap
-    bucket = "kodrops-terraform"     #created in bootstrap, but no vars are allowed here #TODO: look into using vars to specify backend bucket name
+    bucket = "kodrops-terraform" #created in bootstrap, but no vars are allowed here #TODO: look into using vars to specify backend bucket name
     prefix = "terraform/state"
   }
 }

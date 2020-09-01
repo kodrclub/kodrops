@@ -9,4 +9,4 @@
 # output prometheus_chart_version {value = module.monitoring.prometheus_chart_version}
 # output grafana_chart_version {value = module.monitoring.grafana_chart_version}
 
-output name_servers {value = module.dns.name_servers}
+output name_servers { value = module.dns.name_servers }

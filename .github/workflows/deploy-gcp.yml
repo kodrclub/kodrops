@@ -3,26 +3,61 @@ name: deploy-gcp
 on:
   push:
     branches:
-      - master
+      - kodrops
     paths:
-      - 'infra/k8s/**'
-      - 'infra/k8s-prod/**'
-      - 'infra/k8s-prod-monit/**'
+      - 'infra/___gcp/**'
+      - '.github/workflows/**'
+
+env:
+  TF_VAR_dnsimple_account: ${{secrets.TF_VAR_DNSIMPLE_ACCOUNT}}
+  TF_VAR_dnsimple_token: ${{secrets.TF_VAR_DNSIMPLE_TOKEN}}
 
 jobs:
-  build:
+  terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: GCP for Terraform
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '290.0.1'
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GCP_SA_KEY_TERRAFORM }}
           export_default_credentials: true
-      - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
-        env:
-          GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
-          GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-      - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod && kubectl apply -f infra/k8s-prod-monit -n monit
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Init
+        run: cd infra/___gcp && terraform init
+
+      - name: Terraform Format
+        run: cd infra/___gcp && terraform fmt -check
+
+      - name: Terraform Plan
+        run: cd infra/___gcp && terraform plan -out "planfile"
+
+      - name: Terraform Apply
+        run: cd infra/___gcp && terraform apply -auto-approve "planfile"
+
+      # - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
+      #   env:
+      #     GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
+      #     GCP_ZONE: ${{ secrets.GCP_ZONE }}
+
+      # - run: |
+      #     kubectl apply            -f infra/k8s-prod/kodrops-ns.yaml
+      #     kubectl apply -n kodrops -f infra/k8s
+      #     kubectl apply -n kodrops -f infra/k8s-prod
+      #     kubectl apply -n monit   -f infra/k8s-prod-monit
