@@ -27,15 +27,7 @@ $ make dev
 
 at the root directory of the project. This makes sure that skaffold is running on the correct K8s context. This context can be specified in the environment variable `SKAFFOLD_CONTEXT`. It defaults to "docker-desktop".
 
-![skaffold in action](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/skaffold.gif)
-
-### Stress testing
-
-A simple stress testing script using [Locust](https://locust.io/) is included in the locustfile.py file in the root directory of the project. It runs on a Docker container, so it is not necessary to install python, pip or locust itself on the dev machine. The script can be started by running
-
-```
-$ make stress
-```
+![skaffold in action](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/skaffold-in-action.gif)
 
 ## Production
 
@@ -128,6 +120,14 @@ kubectl get secret --namespace monit kodrops-xyz-grafana -o jsonpath="{.data.adm
 If you chose a name other than `kodrops-xyz` for the cluster, you'll need to replace it in the command above.
 
 Launching a locust stress test is a good way to see the Grafana dasboard in action.
+
+### Running stress tests
+
+A simple stress testing script using [Locust](https://locust.io/) is included in the locustfile.py file in the root directory of the project. It runs on a Docker container, so it is not necessary to install python, pip or locust itself on the dev machine. The script can be started by running
+
+```
+$ make stress
+```
 
 ---
 
