@@ -27,6 +27,8 @@ $ make dev
 
 at the root directory of the project. This makes sure that skaffold is running on the correct K8s context. This context can be specified in the environment variable `SKAFFOLD_CONTEXT`. It defaults to "docker-desktop".
 
+![skaffold in action](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/skaffold.gif)
+
 ### Stress testing
 
 A simple stress testing script using [Locust](https://locust.io/) is included in the locustfile.py file in the root directory of the project. It runs on a Docker container, so it is not necessary to install python, pip or locust itself on the dev machine. The script can be started by running
