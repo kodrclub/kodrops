@@ -9,8 +9,8 @@ main_region  = "europe-west4"
 main_zone    = "europe-west4-a"
 
 cluster_name            = "kodrops-xyz"
-cluster_location        = "europe-west4" #Specify a region to create a multi-zone cluster. Specify a zone to create a single-zone cluster
-cluster_pool_node_count = 2
+cluster_location        = "europe-west4-a" #Specify a region to create a multi-zone cluster. Specify a zone to create a single-zone cluster
+cluster_pool_node_count = 3
 k8s_version_prefix      = "1.16."
 
 cert_manager_version = "0.16"
