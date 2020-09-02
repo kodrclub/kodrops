@@ -10,7 +10,6 @@ _The MERN app in all its glory_
 A separate application called Hello is also included. This is just a simple "hello, world"-style app that comes in handy for troubleshooting.
 
 ![Screenshot from the hello app](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/app-hello.png)
-
 _Cute kitty picture by [placekitten](https://placekitten.com)_
 
 ## Development environment
@@ -107,11 +106,26 @@ Both test and deployment workflows are included.
 
 Test workflows are run when creating/updating a pull request that contains changes in the source code.
 
+![Testing the client](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/pipeline-tests-client-success.png)
+_The client app passes its tests_
+
+![Testing the backend](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/pipeline-tests-backend-fail.png)
+_No such luck with the backend_
+
 Deployment workflows are run when the master git branch changes, either by directly pushing commits to it (not recommended) or by merging a pull request.
 
 - The deploy-gcp workflow is in charge of setting up and updating the whole infrastructure. After running Terraform, it deploys the necessary Kubernetes manifests. It is triggered when changes are made inside the infra/gcp directory
 - The deploy-manifests workflow keeps the Kubernetes side of things updated. It is triggered when changes are made inside any of the infra/k8s-\* directories (with the exception of infra/k8s-dev)
   Since both workflows deploy the same manifests to the cluster, and Github Actions currently doesn't support invoking a workflow from another, part of this common code has been moved to the `test-prod-manifests` and `deploy-prod-manifests` targets in the makefile in order to make things (somewhat) DRYer.
+
+![Using Terraform in the CI/CD pipeline to create the infrastructure](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/pipeline-deploy-gcp-1.png)
+_Deploying the infrastructure via Terraform..._
+
+![Deploying the Kubernetes side of the infrastructure](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/pipeline-deploy-gcp-2.png)
+_... and then deploying the Kubernetes manifests_
+
+![Building and deploying the Docker image for the client app](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/pipeline-deploy-client.png)
+_Building a Docker image for the client app and deploying it to the production cluster_
 
 ### Monitoring
 
@@ -123,7 +137,7 @@ _Some of the custom metrics exposed by the express backend_
 ![The dashboard in Grafana](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/monit-grafana.png)
 _The dashboard in Grafana_
 
-The Promeheus front-end is exposed at https://prom.&lt?your-domain-name>, the Grafana front-end is exposed at https://graf.&lt?your-domain-name>. While this convenient for demo purposes, in a real life situation it probably wouldn't be desirable to do this, and it would be more sensible to access them by using a Kubernetes port forward command such as:
+The Prometheus front-end is exposed at `https://prom.your-domain-name`, the Grafana front-end is exposed at `https://graf.your-domain-name`. While this convenient for demo purposes, in a real life situation it probably wouldn't be desirable to do this, and it would be more sensible to access them by using a Kubernetes port forward command such as:
 
 ```
 kubectl port-forward service/kodrops-xyz-grafana 3000:80 -n monit
@@ -150,8 +164,6 @@ A simple stress testing script using [Locust](https://locust.io/) is included in
 ```
 $ make stress
 ```
-
----
 
 > ## To Do / Possible improvements
 >
