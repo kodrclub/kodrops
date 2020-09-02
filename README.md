@@ -4,7 +4,11 @@
 
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
 
+![Screenshot from the MERN app](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/app-mern.png 'The MERN app in all its glory')
+
 A separate application called Hello is also included. This is just a simple "hello, world"-style app that comes in handy for troubleshooting.
+
+![Screenshot from the hello app](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/app-hello.png 'Kitty picture by placekitten.com')
 
 ## Development environment
 
@@ -27,7 +31,7 @@ $ make dev
 
 at the root directory of the project. This makes sure that skaffold is running on the correct K8s context. This context can be specified in the environment variable `SKAFFOLD_CONTEXT`. It defaults to "docker-desktop".
 
-![skaffold in action](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/skaffold-in-action.gif)
+![skaffold in action](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/skaffold-in-action.gif 'Skaffold in action')
 
 ## Production
 
@@ -83,15 +87,15 @@ The CI/CD pipeline uses Github Actions to automate infrastructure provisioning, 
 
 The pipeline requires the following secrets to be defined:
 
-- DOCKER_PASSWORD : the password for the Docker Hub account
-- DOCKER_USERNAME: the username for the Docker Hub account
-- GCP_CLUSTER_NAME: the name that will be given to the cluster
-- GCP_PROJECT_ID: the id for the GCP project (which may differ from the project's name)
-- GCP_SA_KEY: key for the service account used to access GCP, in JSON format
-- GCP_SA_KEY_TERRAFORM: key for the service account used by Terraform to access GCP, in JSON format
-- GCP_ZONE: the GCP zone we will be targeting
-- TF_VAR_DNSIMPLE_ACCOUNT: the DNSimple account id (see above)
-- TF_VAR_DNSIMPLE_TOKEN: the DNSimple access token (see above)
+- **DOCKER_PASSWORD:** the password for the Docker Hub account
+- **DOCKER_USERNAME:** the username for the Docker Hub account
+- **GCP_CLUSTER_NAME:** the name that will be given to the cluster
+- **GCP_PROJECT_ID:** the id for the GCP project (which may differ from the project's name)
+- **GCP_SA_KEY:** key for the service account used to access GCP, in JSON format
+- **GCP_SA_KEY_TERRAFORM:** key for the service account used by Terraform to access GCP, in JSON format
+- **GCP_ZONE:** the GCP zone we will be targeting
+- **TF_VAR_DNSIMPLE_ACCOUNT:** the DNSimple account id (see above)
+- **TF_VAR_DNSIMPLE_TOKEN:** the DNSimple access token (see above)
 
 Notice that TF_VAR_DNSIMPLE_ACCOUNT and TF_VAR_DNSIMPLE_TOKEN are in all-caps, as GitHub seems to enforce this for secret names. Terraform requires env vars to be in the format TF_VAR_variable-name-in-lowercase. This is taken care of in the workflows.
 
