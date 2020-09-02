@@ -133,6 +133,9 @@ Launching a locust stress test is a good way to see the Grafana dasboard in acti
 > - Use a Kubernetes statefulSet to provide persistence to MongoDb
 > - Ditto for Prometheus and Grafana
 > - Add healthchecks to all deployments/services
+> - Use a VPC-Native cluster instead of a routes-based one
 > - Add infrastructure tests (Inspec? Terratest?)
 > - Automated build and use of tagged, version-pinned images instead of `latest` in production
+> - Add autoscaling
+> - Explore other Kubernetes resource types, such as CronJobs and DaemonSets
 > - Fully-fledged GitOps with ArgoCD? Flux? Jenkins X? Tekton?
