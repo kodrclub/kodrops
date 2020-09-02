@@ -43,6 +43,8 @@ DNS is provided by DNSimple. Once the ingress-nginx load-balancer is created in 
 
 The images for the container are stored publicly in Docker Hub. In a real-world scenario, it would probably be advisable to use GCP's container registry instead.
 
+![Graphic describing the infrastructure](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/kodrops-infra.png)
+
 ### Preliminaries
 
 - Log on to the GCP console or use the gcloud CLI with suitable credentials. Please refer to the [gcloud documentation](https://cloud.google.com/sdk/gcloud) for more information on how to to this.
