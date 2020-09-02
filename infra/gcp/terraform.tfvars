@@ -22,5 +22,5 @@ prometheus_chart_version = "11.12"
 # dns_zone_name = "kodrops-xyz"
 domain_name = "kodrops.xyz"
 subdomains  = ["graf", "prom"]
-# dnsimple_account = ----SECRET ----
-# dnsimple_token   = ----SECRET ----
+# dnsimple_account = ---- SECRET ----
+# dnsimple_token   = ---- SECRET ----

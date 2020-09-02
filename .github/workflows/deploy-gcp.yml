@@ -71,17 +71,20 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-      - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
+      - name: Get cluster credentials
+        run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
         env:
           GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
           GCP_ZONE: ${{ secrets.GCP_ZONE }}
 
-      - run: make deploy-prod-manifests
+      - name: Install kubeval
+        run: |
+          wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+          tar xf kubeval-linux-amd64.tar.gz
+          cp kubeval /usr/local/bin
 
-      # - run: |
-      #     kubectl apply            -f infra/k8s-prod/kodrops-ns.yaml
-      #     kubectl apply -n kodrops -f infra/k8s
-      #     kubectl apply -n kodrops -f infra/k8s-prod
-      #     kubectl apply -n monit   -f infra/k8s-prod-monit
-      #     kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=0
-      #     kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=1
+      - name: Test manifests
+        run: make test-prod-manifests
+
+      - name: Deploy manifests
+        run: make deploy-prod-manifests

@@ -107,7 +107,7 @@ Deployment workflows are run when the master git branch changes, either by direc
 
 - The deploy-gcp workflow is in charge of setting up and updating the whole infrastructure. After running Terraform, it deploys the necessary Kubernetes manifests. It is triggered when changes are made inside the infra/gcp directory
 - The deploy-manifests workflow keeps the Kubernetes side of things updated. It is triggered when changes are made inside any of the infra/k8s-\* directories (with the exception of infra/k8s-dev)
-  Since both workflows deploy the same manifests to the cluster, and Github Actions currently doesn't support invoking a workflow from another, this common code has been moved to the `deploy-prod-manifests` target in the makefile in order to keep things DRY.
+  Since both workflows deploy the same manifests to the cluster, and Github Actions currently doesn't support invoking a workflow from another, part of this common code has been moved to the `test-prod-manifests` and `deploy-prod-manifests` targets in the makefile in order to make things (somewhat) DRYer.
 
 ### Monitoring
 
