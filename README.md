@@ -3,12 +3,12 @@
 ![deploy-gcp badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-gcp/badge.svg)
 ![deploy-manifests badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-manifests/badge.svg)
 
+![tests-backend badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-backend/badge.svg)
+![tests-client badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-client/badge.svg)
+
 ![deploy-backend badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-backend/badge.svg)
 ![deploy-client badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-client/badge.svg)
 ![deploy-hello badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-hello/badge.svg)
-
-![tests-backend badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-backend/badge.svg)
-![tests-client badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-client/badge.svg)
 
 ## Overview
 
