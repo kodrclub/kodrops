@@ -4,7 +4,7 @@ variable "main_region" {}
 variable "main_zone" {}
 
 variable "cluster_name" {}
-variable "cluster_location" {} #Specify a region to create a multi-zone cluster. Specify a zone to create a single-zone cluster
+variable "cluster_location" {} #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
 variable "cluster_pool_node_count" {}
 variable "k8s_version_prefix" {}
 
