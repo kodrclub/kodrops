@@ -38,7 +38,7 @@ _Skaffold in action_
 
 ## Production
 
-The application will be deployed to a Kubernetes cluster running on the Google Kubernetes Engine. The cluster can be either single or multi-zone, depending on whether a zone name or a region name are specified as the location for the cluster.
+The application will be deployed to a Kubernetes cluster running on the Google Kubernetes Engine. The cluster can be either zonal (currently limited to a single zone) or regional, depending on whether a zone name or a region name are specified as the location for the cluster.
 
 DNS is provided by DNSimple. Once the ingress-nginx load-balancer is created in Kubernetes, DNS records pointing to its public IP address are created using the DNSimple provider for Terraform. In a real-world scenario it would be simpler and safer to just use Google Domains and a GCP DNS zone, and/or reserve a fixed IP address to use with the project. For this exercise we decided to keep costs to the bare minimum, so we registered an .xyz domain with [Namecheap](https://www.namecheap.com) for \$1 and then used a 30-day free trial in [DNSimple](https://dnsimple.com) (Namecheap does provide its own API for automation, but it requires a \$50 deposit or 20 registered domains). Although contrived, this setup also provided an extra challenge.
 

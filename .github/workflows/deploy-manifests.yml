@@ -21,12 +21,10 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
 
-      #NOTE: when using a multi-zone cluster, all references to zone must be replaced by references to the region
-      #TODO: make it so that it is not necessary to modify this file when switching from single to multizone and vice versa
-      - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --zone $GCP_ZONE
+      - run: gcloud container clusters get-credentials $GCP_CLUSTER_NAME --$GCP_LOCATION_TYPE $GCP_LOCATION
         env:
           GCP_CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
-          GCP_ZONE: ${{ secrets.GCP_ZONE }}
+          GCP_LOCATION: ${{ secrets.GCP_LOCATION }}
 
       - name: Install kubeval
         run: |

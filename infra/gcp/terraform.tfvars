@@ -9,8 +9,15 @@ main_region  = "europe-west4"
 main_zone    = "europe-west4-a"
 
 cluster_name            = "kodrops-xyz"
-cluster_location        = "europe-west4-a" #Specify a region to create a multi-zone cluster. Specify a zone to create a single-zone cluster
-cluster_pool_node_count = 3
+
+# Create a (mono)zonal cluster
+# cluster_location        = "europe-west4-a" #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
+# cluster_pool_node_count = 3
+
+# Create a regional cluster - For the time being this requires that we use a lower pool node count, or we would exceed our IP quota. This wouldn't be a problem if we used a VPC-based cluster instead of routes-based
+cluster_location        = "europe-west4" #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
+cluster_pool_node_count = 2
+
 k8s_version_prefix      = "1.16."
 
 cert_manager_version = "0.16"
