@@ -8,11 +8,8 @@ project_id   = "kodrops"
 main_region  = "europe-west4"
 main_zone    = "europe-west4-a"
 
-<<<<<<< HEAD
 cluster_name = "kodrops-xyz"
-=======
-cluster_name            = "kodrops-xyz"
->>>>>>> Better support for switching between regional and zonal clusters
+
 
 # Create a (mono)zonal cluster
 # cluster_location        = "europe-west4-a" #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
@@ -22,11 +19,7 @@ cluster_name            = "kodrops-xyz"
 cluster_location        = "europe-west4" #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
 cluster_pool_node_count = 2
 
-<<<<<<< HEAD
 k8s_version_prefix = "1.16."
-=======
-k8s_version_prefix      = "1.16."
->>>>>>> Better support for switching between regional and zonal clusters
 
 cert_manager_version = "0.16"
 ingress_version      = "2.12"
