@@ -1,5 +1,15 @@
 # GeeksHubs DevOps Bootcamp 2020 - Final Project
 
+![deploy-gcp badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-gcp/badge.svg)
+![deploy-manifests badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-manifests/badge.svg)
+
+![deploy-backend badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-backend/badge.svg)
+![deploy-client badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-client/badge.svg)
+![deploy-hello badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-hello/badge.svg)
+
+![tests-backend badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-backend/badge.svg)
+![tests-client badge](https://github.com/kodrclub/bcdevops-final/workflows/tests-client/badge.svg)
+
 ## Overview
 
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
