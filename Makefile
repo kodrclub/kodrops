@@ -22,6 +22,10 @@ endif
 SKAFFOLD_CONTEXT ?= "docker-desktop"
 CURRENT_CONTEXT := "$(shell kubectl config current-context)"
 
+help:
+>	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+.PHONY: help
+
 dev: ## Runs local development environment making sure we are using the right Kubernetes context
 ifneq ($(CURRENT_CONTEXT), $(SKAFFOLD_CONTEXT))
 >	@kubectl config use-context $(SKAFFOLD_CONTEXT)
@@ -58,7 +62,3 @@ else
 > @kubectl scale -n monit deploy kodrops-xyz-grafana --replicas=1
 endif
 .PHONY: deploy-prod-manifests
-
-help:
->	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-.PHONY: help
