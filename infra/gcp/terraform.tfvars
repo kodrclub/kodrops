@@ -19,7 +19,7 @@ cluster_name = "kodrops-xyz"
 cluster_location        = "europe-west4" #Specify a region to create a regional cluster. Specify a zone to create a single-zone cluster
 cluster_pool_node_count = 2
 
-k8s_version_prefix = "1.16."
+k8s_version_prefix = "1.16.12"
 
 cert_manager_version = "0.16"
 ingress_version      = "2.12"
