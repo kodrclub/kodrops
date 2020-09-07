@@ -10,6 +10,13 @@
 ![deploy-client badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-client/badge.svg)
 ![deploy-hello badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-hello/badge.svg)
 
+&nbsp;
+
+> ![](https://i.ytimg.com/vi/3vhst6e8zEQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBhGpbNgywVphBJIIwxF_2let5vGg)
+> Also watch [the YouTube videos](https://www.youtube.com/playlist?list=PLhIpOmnABuWn2u54ldK6sf5AB2GRbyNSl) (currently only available in Spanish)
+
+&nbsp;
+
 ## Overview
 
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
