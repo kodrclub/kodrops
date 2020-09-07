@@ -182,6 +182,7 @@ $ make stress
 > - Use a Kubernetes statefulSet to provide persistence to MongoDb
 > - Ditto for Prometheus and Grafana
 > - Add healthchecks to all deployments/services
+> - Add Elastic Stack as a logging solution
 > - Use a VPC-Native cluster instead of a routes-based one
 > - Add infrastructure tests (Inspec? Terratest?)
 > - Automated build and use of tagged, version-pinned images instead of `latest` in production
