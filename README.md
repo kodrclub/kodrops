@@ -176,6 +176,8 @@ A simple stress testing script using [Locust](https://locust.io/) is included in
 $ make stress
 ```
 
+&nbsp;
+
 > ## To Do / Possible improvements
 >
 > - Streamline dev/prod k8s manifests (kustomize? Helm?) to keep things DRY
@@ -189,3 +191,13 @@ $ make stress
 > - Add autoscaling
 > - Explore other Kubernetes resource types, such as CronJobs and DaemonSets
 > - Fully-fledged GitOps with ArgoCD? Flux? Jenkins X? Tekton?
+
+&nbsp;
+
+> ## Sources of knowledge and inspiration
+>
+> - [The DevOps online bootcamp by GeeksHubs](https://bootcamp.geekshubsacademy.com/online/devops/)
+> - Brett Fisher's [Docker Mastery](https://www.udemy.com/course/docker-mastery/) and [Docker for Node.js](https://www.udemy.com/course/docker-mastery-for-nodejs/) courses at Udemy
+> - Stephen Grider's [Microservices with Node JS and React](https://www.udemy.com/course/microservices-with-node-js-and-react/) course, also at Udemy
+> - The official documentation for [Docker](https://docs.docker.com/), [Kubernetes](https://kubernetes.io/docs/home/), [Terraform](https://www.terraform.io/docs/index.html) and more
+> - Plus the obligatory bajillion Google searches and YouTube videos
