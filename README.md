@@ -19,6 +19,20 @@
 
 ## Overview
 
+This project is meant to serve as an example of a complete(ish) DevOps cycle implementation.
+
+Taking a simple web app as a starting point, the aim of the project is to provide:
+
+- A development environment that aims to resemble the production environment as closely as possible and, at the same time, is easy to use for the development team.
+- Automated pipelines for:
+  - Provisioning, testing and maintaining the production infrastructure
+  - Building, testing application code and releasing/deploying it in production
+- Monitoring the application
+
+[](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/devops-cycle.png)
+
+Needless to say, the purpose of this implementation is to showcase _one_ way of putting the pieces of the DevOps puzzle together. In no way does it pretent do be a one-size-fits-all, silver bullet solution or even be production-ready. It can be, in any case, a good starting point for your own implementations.
+
 The MERN application used in the project is taken from https://github.com/samaronybarros/movies-app, modified where needed to add testing and integration with a CI/CD pipeline.
 
 ![Screenshot from the MERN app](https://github.com/kodrclub/bcdevops-final/blob/master/.readme/app-mern.png)
@@ -198,6 +212,10 @@ $ make stress
 > - Add autoscaling
 > - Explore other Kubernetes resource types, such as CronJobs and DaemonSets
 > - Fully-fledged GitOps with ArgoCD? Flux? Jenkins X? Tekton?
+
+> ## Contributing
+
+This project was put together for learning purposes. Please feel free to fork it. Pull requests with corrections or additions are most welcome.
 
 &nbsp;
 
