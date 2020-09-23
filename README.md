@@ -1,4 +1,4 @@
-# GeeksHubs DevOps Bootcamp 2020 - Final Project
+# KodrOps
 
 ![deploy-gcp badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-gcp/badge.svg)
 ![deploy-manifests badge](https://github.com/kodrclub/bcdevops-final/workflows/deploy-manifests/badge.svg)
