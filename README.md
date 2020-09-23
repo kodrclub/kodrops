@@ -29,9 +29,7 @@ Taking a simple web app as a starting point, the aim of the project is to provid
   - Building, testing application code and releasing/deploying it in production
 - Monitoring the application
 
-
 <img src=".readme/devops-cycle.png" width="40%" /> _The DevOps cycle_
-
 
 Needless to say, the purpose of this implementation is to showcase _one_ way of putting the pieces of the DevOps puzzle together. In no way does it pretent do be a one-size-fits-all, silver bullet solution or even be production-ready. It can be, in any case, a good starting point for your own implementations.
 
