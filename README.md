@@ -27,7 +27,7 @@ Taking a simple web app as a starting point, the aim of the project is to provid
 - Automated pipelines for:
   - Provisioning, testing and maintaining the production infrastructure
   - Building, testing application code and releasing/deploying it in production
-- Monitoring the application
+- Monitorization of the production environment
 
 <img src=".readme/devops-cycle.png" width="40%" /> _The DevOps cycle_
 
