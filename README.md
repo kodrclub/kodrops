@@ -12,8 +12,8 @@
 
 &nbsp;
 
-> ![](https://i.ytimg.com/vi/3vhst6e8zEQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBhGpbNgywVphBJIIwxF_2let5vGg)
-> Also watch [the YouTube videos](https://www.youtube.com/playlist?list=PLhIpOmnABuWn2u54ldK6sf5AB2GRbyNSl) (currently only available in Spanish)
+> ![](http://i3.ytimg.com/vi/f-SG-1FAUfE/hqdefault.jpg)
+> Also watch [the YouTube videos](https://www.youtube.com/playlist?list=PLhIpOmnABuWkj2EPn9NCfUk9KyoKYx09E)
 
 &nbsp;
 
