@@ -12,7 +12,7 @@
 
 &nbsp;
 
-> ![](http://i3.ytimg.com/vi/f-SG-1FAUfE/hqdefault.jpg)
+> ![](.readme/youtube-thumbnail.png)
 > Also watch [the YouTube videos](https://www.youtube.com/playlist?list=PLhIpOmnABuWkj2EPn9NCfUk9KyoKYx09E)
 
 &nbsp;
