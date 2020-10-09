@@ -1,10 +1,4 @@
-#
-# Use this to start the dev environment instead of directly running
-# $ skaffold dev
-#
-# This prevents accidentally trying to run skaffold on the wrong context
-# (maybe production?!?)
-#
+
 SHELL := bash
 .ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c
@@ -26,6 +20,13 @@ help:
 >	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 .PHONY: help
 
+#
+# Use this to start the dev environment instead of directly running
+# $ skaffold dev
+#
+# This prevents accidentally trying to run skaffold on the wrong context
+# (maybe production?!?)
+#
 dev: ## Runs local development environment making sure we are using the right Kubernetes context
 ifneq ($(CURRENT_CONTEXT), $(SKAFFOLD_CONTEXT))
 >	@kubectl config use-context $(SKAFFOLD_CONTEXT)
